@@ -1,0 +1,28 @@
+Algorithm explanation:
+ Initialize variables rounds and found 
+    (let rounds - number of rounds the three brothers can drink
+     let found for checking how many glasses are the same size in a row)
+
+ Set first(index= 0) element of array as last checked size (last_size)
+ Start looping from the second element(index= 1)
+
+ If last_size is equal to current element
+    then 
+        increment found and check if found is equal to two
+            if found is equal to two 
+                then the current element is the third equal in a row
+                and we can remove those three from array
+
+                    becuase I use splice, I removed previous two and current with glasses.splice(i - 2, 3)
+                    after removing those three, I want to return 3 steps because of splice and one more in case that modified array 
+                    creates another equal three right away 
+                    ( i - 4 < 0 ? i = 0 : i -= 4) in code
+
+                    set current as last_size and continue
+
+If last_size is NOT equal to current element   
+     then   
+        reset found to zero 
+        set current as last_size and continue
+
+           
